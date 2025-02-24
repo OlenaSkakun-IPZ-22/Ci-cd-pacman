@@ -118,7 +118,7 @@ while running:
 screen.fill(BLACK)
 font = pygame.font.Font(None, 50)
 if game.pacman.lives > 0:
-    text = font.render("🎉 ВИ ПЕРЕМОГ!", True, BLACK)
+    text = font.render("🎉 ВИ ПЕРЕМОГЛИ!", True, WHITE)
 else:
     text = font.render("❌ ВИ ПРОГРАЛИ!", True, RED)
 screen.blit(text, (WIDTH // 4, HEIGHT // 2))
