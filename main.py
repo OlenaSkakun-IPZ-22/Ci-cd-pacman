@@ -26,14 +26,20 @@ maze = Maze()
 game = GameManager(maze)
 game_state = GameState()
 
-#намалювати стіни
+#рисуем стены
+def draw_maze():
+    for y, row in enumerate(maze.grid):
+        for x, cell in enumerate(row):
+            if cell == '#':  # Стіни
+                pygame.draw.rect(screen, BLUE, (x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE))
+
+#рисуем пакмена самого
+# Функція для малювання Pac-Man
 
 
-#намалювати самого пакмена
 
-
-
-#намалювати привида
+#рисуем привидение
+# Функція для малювання привидів
 
 
 
@@ -50,7 +56,7 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
+    draw_maze()
     pygame.display.flip()  # Оновлення
     clock.tick(10)  # Обмеження FPS до 10
 pygame.quit()
