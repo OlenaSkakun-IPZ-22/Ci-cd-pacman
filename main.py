@@ -26,7 +26,7 @@ maze = Maze()
 game = GameManager(maze)
 game_state = GameState()
 
-#рисуем стены
+#малюємо лабіринт
 def draw_maze():
     for y, row in enumerate(maze.grid):
         for x, cell in enumerate(row):
@@ -34,6 +34,8 @@ def draw_maze():
                 pygame.draw.rect(screen, BLUE, (x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE))
             elif cell == '.':  # Точки
                 pygame.draw.circle(screen, WHITE, (x * CELL_SIZE + CELL_SIZE // 2, y * CELL_SIZE + CELL_SIZE // 2), 5)
+            elif cell == 'O':  # Енергоджайзери
+                pygame.draw.circle(screen, WHITE, (x * CELL_SIZE + CELL_SIZE // 2, y * CELL_SIZE + CELL_SIZE // 2), 10)
 
 
 #рисуем пакмена самого
