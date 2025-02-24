@@ -1,7 +1,7 @@
 import time
 
 class PacMan:
-    def init(self, x, y, game_manager):
+    def __init__(self, x, y, game_manager):
         self.x = x
         self.y = y
         self.lives = 3
