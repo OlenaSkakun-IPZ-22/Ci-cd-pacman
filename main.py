@@ -114,6 +114,21 @@ while running:
     # Якщо гра закінчена – зупиняємо цикл
     if game.game_over:
         running = False
+# Завершення гри: показуємо повідомлення і чекаємо виходу
+screen.fill(BLACK)
+font = pygame.font.Font(None, 50)
+if game.pacman.lives > 0:
+    text = font.render("🎉 ВИ ПЕРЕМОГ!", True, BLACK)
+else:
+    text = font.render("❌ ВИ ПРОГРАЛИ!", True, RED)
+screen.blit(text, (WIDTH // 4, HEIGHT // 2))
+pygame.display.flip()
 
+# Чекаємо натискання клавіші
+waiting = True
+while waiting:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT or event.type == pygame.KEYDOWN:
+            waiting = False
 pygame.quit()
 sys.exit()
