@@ -42,7 +42,7 @@ def draw_maze():
 # Функція для малювання Pac-Man
 def draw_pacman():
     pygame.draw.circle(screen, YELLOW,
-                       (game.pacman.x * CELL_SIZE + CELL_SIZE // 4, game.pacman.y * CELL_SIZE + CELL_SIZE // 2),
+                       (game.pacman.x * CELL_SIZE + CELL_SIZE // 2, game.pacman.y * CELL_SIZE + CELL_SIZE // 2),
                        CELL_SIZE // 3)
 
 
@@ -56,7 +56,16 @@ def draw_ghosts():
 
 
 # Функція для відображення рахунку та кількості життів
+def draw_score_and_lives():
+    font = pygame.font.Font(None, 36)
 
+    # Рахунок
+    score_text = font.render(f"Score: {game.pacman.score}", True, WHITE)
+    screen.blit(score_text, (10, 10))
+
+    # Кількість життів
+    lives_text = font.render(f"Lives: {game.pacman.lives}", True, WHITE)
+    screen.blit(lives_text, (10, 50))  # Розташування тексту для життів
 
 
 
