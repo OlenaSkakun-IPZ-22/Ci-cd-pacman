@@ -1,16 +1,24 @@
-# This is a sample Python script.
+import pygame
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Инициализация Pygame
+pygame.init()
 
+# Налаштування вікна
+WIDTH, HEIGHT = 600, 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Pac-Man")
+clock = pygame.time.Clock()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# Основний цикл гри
+running = True
+while running:
+    screen.fill((0, 0, 0))  # Очищення екрану
 
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    pygame.display.flip()  # Оновлення екрану
+    clock.tick(10)  # Обмеження FPS
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+pygame.quit()
