@@ -40,6 +40,10 @@ def draw_maze():
 
 #рисуем пакмена самого
 # Функція для малювання Pac-Man
+def draw_pacman():
+    pygame.draw.circle(screen, YELLOW,
+                       (game.pacman.x * CELL_SIZE + CELL_SIZE // 4, game.pacman.y * CELL_SIZE + CELL_SIZE // 2),
+                       CELL_SIZE // 3)
 
 
 
