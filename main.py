@@ -49,6 +49,9 @@ def draw_pacman():
 
 #рисуем привидение
 # Функція для малювання привидів
+def draw_ghosts():
+    for ghost in game.ghosts:
+        pygame.draw.rect(screen, ghost.color, (ghost.x * CELL_SIZE, ghost.y * CELL_SIZE, CELL_SIZE, CELL_SIZE))
 
 
 
