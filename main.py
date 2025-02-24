@@ -32,6 +32,9 @@ def draw_maze():
         for x, cell in enumerate(row):
             if cell == '#':  # Стіни
                 pygame.draw.rect(screen, BLUE, (x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE))
+            elif cell == '.':  # Точки
+                pygame.draw.circle(screen, WHITE, (x * CELL_SIZE + CELL_SIZE // 2, y * CELL_SIZE + CELL_SIZE // 2), 5)
+
 
 #рисуем пакмена самого
 # Функція для малювання Pac-Man
