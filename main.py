@@ -80,6 +80,7 @@ def check_collision_with_ghosts():
 
 
 # Основний цикл гри
+# Основний цикл гри
 running = True
 while running:
     screen.fill(BLACK)  # Очищення екрану
@@ -87,11 +88,32 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    draw_maze()
+        elif event.type == pygame.KEYDOWN and not game.game_over:
+            if event.key == pygame.K_UP:
+                game.pacman.move("UP", maze)
+            elif event.key == pygame.K_DOWN:
+                game.pacman.move("DOWN", maze)
+            elif event.key == pygame.K_LEFT:
+                game.pacman.move("LEFT", maze)
+            elif event.key == pygame.K_RIGHT:
+                game.pacman.move("RIGHT", maze)
+
+    check_collision_with_ghosts()  # Перевіряємо зіткнення з привидами
+
+    game.update_game()  # Оновлення стану гри
+
+    draw_maze()  # Малюємо лабіринт
+    draw_pacman()  # Малюємо Pac-Man
     draw_ghosts()
-    draw_pacman()
-    draw_score_and_lives()
+    draw_score_and_lives()  # Відображаємо рахунок та кількість життів
+
     pygame.display.flip()  # Оновлення
+
     clock.tick(10)  # Обмеження FPS до 10
+
+    # Якщо гра закінчена – зупиняємо цикл
+    if game.game_over:
+        running = False
+
 pygame.quit()
 sys.exit()
