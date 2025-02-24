@@ -5,4 +5,4 @@ class GameState:
 
     def update_score(self, points):
         """Оновлює рахунок"""
-        pass
+        self.current_score += points
